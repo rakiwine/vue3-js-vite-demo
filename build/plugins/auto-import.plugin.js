@@ -2,6 +2,10 @@
 import AutoImport from "unplugin-auto-import/vite";
 // 自动导入 Vue 组件
 import Components from "unplugin-vue-components/vite";
+// 解析和导入图标组件
+import IconsResolver from "unplugin-icons/resolver";
+// 自动安装和导入图标库中的图标
+import Icons from "unplugin-icons/vite";
 // 提供对 Element Plus UI 库组件的自动导入功能
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 // 自动识别并导入 Element Plus UI 组件的样式
@@ -34,6 +38,10 @@ export default [
         resolvers: [
             // 按需导入 Element Plus 组件的一个解析器
             ElementPlusResolver(),
+            // 自动导入图标组件
+            IconsResolver({
+                prefix: "Icon",
+            }),
         ],
     }),
     // 按需导入 Vue 组件
@@ -54,9 +62,16 @@ export default [
             ElementPlusResolver({
                 importStyle: "sass",
             }),
+            // 自动注册图标组件
+            IconsResolver({
+                enabledCollections: ["ep"],
+            }),
         ],
         // 允许子目录作为组件的命名空间前缀。
         // directoryAsNamespace: false,
+    }),
+    Icons({
+        autoInstall: true,
     }),
     createStyleImportPlugin({
         // 指定导入路径的解析器

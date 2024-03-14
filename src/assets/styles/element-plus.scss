@@ -1,0 +1,123 @@
+// 主题颜色定义
+// 透明度 95%=FA   95%=F2  90%=E6 85%=D9 80%=CC  75%=BF 50%=80 25%=40  20%=33
+:root {
+    // 主题背景颜色
+    --pc-theme-bg-color: #1890ff;
+    // 主题悬停颜色
+    --pc-theme-hover-color: #1890ffbf;
+    // 主题活动颜色
+    --pc-theme-active-color: #1890ff80;
+    // 主题禁用颜色
+    --pc-theme-disabled-color: #1890ff40;
+
+    --el-menu-horizontal-height: 60px;
+    --footer-height: 60px;
+    --menu-placeholder: 5%;
+    --sidebar-placeholder: 9%;
+}
+
+// 主题色变量定义
+$theme-color: var(--pc-theme-bg-color);
+$theme-bg-color: var(--pc-theme-bg-color);
+$theme-border-color: var(--pc-theme-active-color);
+$theme-active-color: var(--pc-theme-active-color);
+$theme-hover-color: var(--pc-theme-hover-color);
+$theme-disabled-color: var(--pc-theme-disabled-color);
+
+// Vue根元素样式覆盖
+// 使用:root来定义一些无法完全覆盖的样式
+:root {
+    // Vue组件库主色
+    --el-color-primary: #{$theme-color} !important;
+    // Vue组件库按钮悬停背景色
+    --el-color-primary-light-3: #{$theme-hover-color} !important;
+    // Vue组件库按钮点击背景色
+    --el-color-primary-dark-2: #{$theme-active-color} !important;
+    // Vue组件库按钮禁用背景色
+    --el-color-primary-light-5: #{$theme-disabled-color} !important;
+}
+
+/* 设置滚动条样式 */
+::-webkit-scrollbar {
+    width: 10px; /* 设置滚动条宽度 */
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+    background: transparent; /* 设置轨道背景颜色 */
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* 设置滑块颜色 */
+    border-radius: 10px; /* 设置滑块边角弧度 */
+    border: 2px solid transparent; /* 设置滑块边框 */
+}
+
+/* 滚动条悬停状态下的滑块样式 */
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* 设置悬停状态下的滑块颜色 */
+}
+
+/* 滚动条被点击时的滑块样式 */
+::-webkit-scrollbar-thumb:active {
+    background-color: rgba(0, 0, 0, 0.7); /* 设置点击状态下的滑块颜色 */
+}
+
+body {
+}
+// Vue根元素样式覆盖
+// 使用#app来重写主题
+#app {
+    // Vue组件库主色
+    --el-color-primary: #{$theme-color} !important;
+
+    // Vue组件库按钮样式
+    .el-button {
+        cursor: pointer;
+    }
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+// 主题全色块样式
+.theme-full-color {
+    // 继承主题背景色
+    @extend .theme-bg-color;
+    // 继承主题字体颜色
+    @extend .theme-font-color;
+}
+
+// 主题背景色样式
+.theme-bg-color {
+    background-color: #{$theme-color} !important;
+}
+
+// 主题字体颜色样式
+.theme-font-color {
+    color: #{$theme-color} !important;
+}
+
+// 分页样式
+.el-pagination .btn-prev,
+.el-pagination .btn-next,
+.el-pager li {
+    background-color: transparent !important;
+}
+
+// 链接按钮激活样式
+.el-button.is-link:focus {
+    color: var(--el-button-text-color);
+}
+
+// 点击 el-dropdown 时出现一个不期望的白色边框，这通常是因为浏览器默认的焦点样式（outline）导致的
+.el-dropdown,
+.el-dropdown * {
+    outline: none;
+}

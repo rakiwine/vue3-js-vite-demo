@@ -3,8 +3,6 @@
 这是一个使用 Vue 3、JavaScript 和 Vite 构建的演示项目。
 
 ```shell
---save-dev 或 -d 将包作为开发依赖项 安装
-
 git config --global user.name
 git config --global user.email
 

@@ -1,0 +1,13 @@
+{
+    "plugins": [
+        [
+            "import",
+            {
+                "libraryName": "@element-plus/icons-vue",
+                "libraryDirectory": "lib",
+                "camel2Dash": false,
+                "style": true
+            }
+        ]
+    ]
+}

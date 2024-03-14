@@ -5,11 +5,30 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 export {}
 
-declare module 'vue' {
-  export interface GlobalComponents {
-    AboutPage: typeof import('./../src/components/AboutPage.vue')['default']
-    HelloWorld: typeof import('./../src/components/HelloWorld.vue')['default']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
-  }
+declare module "vue" {
+    export interface GlobalComponents {
+        404: (typeof import("./../src/components/error/404.vue"))["default"];
+        AboutPage: (typeof import("./../src/components/AboutPage.vue"))["default"];
+        ElAside: (typeof import("element-plus/es"))["ElAside"];
+        ElButton: (typeof import("element-plus/es"))["ElButton"];
+        ElCard: (typeof import("element-plus/es"))["ElCard"];
+        ElCol: (typeof import("element-plus/es"))["ElCol"];
+        ElContainer: (typeof import("element-plus/es"))["ElContainer"];
+        ElFooter: (typeof import("element-plus/es"))["ElFooter"];
+        ElHeader: (typeof import("element-plus/es"))["ElHeader"];
+        ElMain: (typeof import("element-plus/es"))["ElMain"];
+        ElMenu: (typeof import("element-plus/es"))["ElMenu"];
+        ElMenuItem: (typeof import("element-plus/es"))["ElMenuItem"];
+        ElRow: (typeof import("element-plus/es"))["ElRow"];
+        ElTag: (typeof import("element-plus/es"))["ElTag"];
+        HelloWorld: (typeof import("./../src/components/HelloWorld.vue"))["default"];
+        HomePage: (typeof import("./../src/components/HomePage.vue"))["default"];
+        ITPComponent: (typeof import("./../src/components/base/ITPComponent.vue"))["default"];
+        Redirect: (typeof import("./../src/components/redirect/index.vue"))["default"];
+        RouterLink: (typeof import("vue-router"))["RouterLink"];
+        RouterView: (typeof import("vue-router"))["RouterView"];
+        TestApi: (typeof import("./../src/components/test/TestApi.vue"))["default"];
+        TestDefault: (typeof import("./../src/components/test/TestDefault.vue"))["default"];
+        TestPage: (typeof import("./../src/components/test/TestPage.vue"))["default"];
+    }
 }

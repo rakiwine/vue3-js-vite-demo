@@ -1,4 +1,4 @@
-import HomeComponent from "@/components/HelloWorld.vue";
+import HomeComponent from "@/components/HomePage.vue";
 export default [
     {
         path: "/",

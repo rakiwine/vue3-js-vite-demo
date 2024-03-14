@@ -16,8 +16,6 @@ export default {
         "stylelint-config-html/html",
         // Stylelint 与 Vue 文件中的样式规则。
         "stylelint-config-html/vue",
-        // 添加对 Sass 的支持
-        "stylelint-config-recommended-scss",
     ],
     rules: {
         // 允许前空行
@@ -43,7 +41,6 @@ export default {
                     "each",
                     "include",
                     "mixin",
-                    "forward",
                 ],
             },
         ],
@@ -91,6 +88,14 @@ export default {
                         ],
                     },
                 ],
+            },
+        },
+        {
+            files: ["*.sass", "**/*.sass"],
+            customSyntax: "postcss-sass",
+            rules: {
+                "sass/color-no-invalid-hex": true,
+                "sass/no-duplicate-variables": true,
             },
         },
     ],

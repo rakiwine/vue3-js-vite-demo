@@ -58,8 +58,6 @@ export const usePermissionStore = defineStore({
 
             // 获取按钮权限字典
             this.auths = generateButtonAuth(data);
-
-            return null;
         },
     },
     // 持久化配置，指定 store 数据是否需要持久化存储。
