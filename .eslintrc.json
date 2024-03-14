@@ -1,0 +1,70 @@
+{
+    // ESLint 将不会继续在父级目录中查找其他配置文件。
+    "root": true,
+    // 指定代码运行的环境
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        // ESLint 官方推荐的规则集。
+        "eslint:recommended",
+        // 提供了针对 Vue.js 3 的一些基本规则。
+        "plugin:vue/vue3-essential",
+        "prettier"
+    ],
+    // 指定解析器，这里使用了 vue-eslint-parser 来解析 .vue 文件中的代码。
+    "parser": "vue-eslint-parser",
+    // 指定解析器的选项
+    "parserOptions": {
+        // 使用最新的 ECMAScript 版本
+        "ecmaVersion": "latest",
+        // 使用 ES 模块的语法。
+        "sourceType": "module",
+        // 允许在任何地方使用 import 和 export 语法
+        "allowImportExportEverywhere": true
+    },
+    "plugins": ["vue", "import", "prettier"],
+    // 针对特定的文件或文件类型进行额外的配置。
+    "overrides": [
+        //当文件为 .eslintrc.js 或 .eslintrc 时，
+        // 将使用 "script" 的 sourceType，表示这些文件使用 CommonJS 的模块语法。
+        {
+            "env": {
+                "node": true
+            },
+            "files": [".eslintrc.{js,cjs}"],
+            "parserOptions": {
+                "sourceType": "script"
+            }
+        }
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        // 禁用未使用变量的检测。
+        "no-unused-vars": "off",
+        // 禁用不必要的转义字符的检测。
+        "no-useless-escape": "off",
+        // 禁用 Vue.js 注释指令的检测。
+        "vue/comment-directive": "off",
+        // 确保在导入路径内一致使用文件扩展名
+        // "import/extensions": "off",
+        // 要求使用 let 或 const 而不是 var
+        "no-var": "error",
+        // 禁止变量声明与外层作用域的变量同名
+        "no-shadow": 1,
+        // 禁止重复模块导入
+        "no-duplicate-imports": "off",
+        // 要求 return 语句要么总是指定返回的值，要么不指定
+        "consistent-return": 1,
+        // 要求使用 const 声明那些声明后不再被修改的变量
+        "prefer-const": "error",
+        // 强制使用一致的缩进
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"]
+    }
+}

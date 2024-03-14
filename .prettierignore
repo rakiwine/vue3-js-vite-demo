@@ -1,0 +1,6 @@
+.env
+.env.production
+.prettierignore
+Dockerfile
+LICENSE
+assets/images/*.*
